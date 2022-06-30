@@ -4,10 +4,36 @@
 
 def sum arr
   # YOUR CODE HERE
+  sum = 0
+  arr.each do
+    |i| sum += i
+  end
+  sum
 end
 
 def max_2_sum arr
   # YOUR CODE HERE
+  if arr.empty?
+    0
+  elsif  arr.length == 1
+    return arr.first
+  else
+    max1, max2 = -114514, -114514
+    arr.each do |i|
+      if i > max1 and i > max2
+        if max1 > max2
+          max2 = i
+        else
+          max1 = i
+        end
+      elsif i > max1
+        max1 = i
+      elsif i > max2
+        max2 = i
+      end
+    end
+    max1 + max2
+  end
 end
 
 def sum_to_n? arr, n
