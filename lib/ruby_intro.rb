@@ -36,22 +36,45 @@ def max_2_sum arr
   end
 end
 
-def sum_to_n? arr, n
+def sum_to_n?(arr, n)
   # YOUR CODE HERE
+  dp = {}
+  arr.each do |i|
+    if dp.has_key?(n - i)
+      return true
+    end
+    dp[i] = i
+  end
+  false
 end
 
 # Part 2
 
 def hello(name)
   # YOUR CODE HERE
+  "Hello, " + name
 end
 
-def starts_with_consonant? s
+def starts_with_consonant?(s)
   # YOUR CODE HERE
+  if (s =~ /^\w/i) == nil
+    return false
+  end
+  if (s =~ /^[^AEIOUaeiou]/i) != nil
+    return true
+  end
+  false
 end
 
-def binary_multiple_of_4? s
+def binary_multiple_of_4?(s)
   # YOUR CODE HERE
+  if s == "0"
+    return true
+  end
+  if (s =~ /^[01]*00$/i) != nil
+    return true
+  end
+  false
 end
 
 # Part 3
