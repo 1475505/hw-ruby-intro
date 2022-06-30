@@ -6,7 +6,8 @@ def sum arr
   # YOUR CODE HERE
   sum = 0
   arr.each do
-    |i| sum += i
+  |i|
+    sum += i
   end
   sum
 end
@@ -15,7 +16,7 @@ def max_2_sum arr
   # YOUR CODE HERE
   if arr.empty?
     0
-  elsif  arr.length == 1
+  elsif arr.length == 1
     return arr.first
   else
     max1, max2 = -114514, -114514
@@ -80,5 +81,33 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  @isbn = ""
+  @price = 0.0
+
+  def initialize(isbn, price)
+    if price <= 0 or isbn.empty?
+      raise ArgumentError
+    end
+    @isbn = isbn
+    @price = price
+  end
+
+  def isbn=(isbn)
+    @isbn = isbn
+  end
+  def isbn
+    @isbn
+  end
+
+  def price=(price)
+    @price = price
+  end
+
+  def price
+    @price
+  end
+
+  def price_as_string
+    "$%.2f" % @price
+  end
 end
